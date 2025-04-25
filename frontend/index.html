@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Training Sessions</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Personal Training Sessions</h1>
+        <button id="connectWallet">Conectar MetaMask</button>
+        <div id="walletInfo" style="display: none;">
+            <span id="walletAddress"></span>
+            <span id="walletBalance"></span> ETH
+        </div>
+    </header>
+
+    <main>
+        <section id="adminSection" style="display: none;">
+            <h2>Panel de Administrador</h2>
+            <div class="form-container">
+                <h3>Añadir Nueva Sesión</h3>
+                <form id="addSessionForm">
+                    <input type="text" id="sessionName" placeholder="Nombre de la sesión" required>
+                    <input type="text" id="sessionImage" placeholder="URL de la imagen" required>
+                    <input type="number" id="sessionPrice" placeholder="Precio en ETH" min="0" step="0.01" required>
+                    <input type="number" id="sessionSlots" placeholder="Número de plazas" min="1" required>
+                    <button type="submit">Añadir Sesión</button>
+                </form>
+            </div>
+
+            <div class="form-container">
+                <h3>Actualizar Sesión</h3>
+                <form id="updateSessionForm">
+                    <input type="number" id="updateSessionId" placeholder="ID de la sesión" min="1" required>
+                    <input type="text" id="updateSessionName" placeholder="Nuevo nombre">
+                    <input type="text" id="updateSessionImage" placeholder="Nueva URL de imagen">
+                    <input type="number" id="updateSessionPrice" placeholder="Nuevo precio en ETH" min="0" step="0.01">
+                    <input type="number" id="updateSessionSlots" placeholder="Nuevo número de plazas" min="0">
+                    <button type="submit">Actualizar Sesión</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="sessionsSection">
+            <h2>Sesiones Disponibles</h2>
+            <div id="sessionsContainer" class="sessions-grid"></div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Reservar Sesión</h2>
+            <div id="modalContent"></div>
+            <button id="confirmBooking" class="action-button">Confirmar Reserva</button>
+        </div>
+    </div>
+</body>
+</html>

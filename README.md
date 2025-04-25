@@ -25,14 +25,9 @@ npm install
    npx hardhat run scripts/deploy.js --network localhost
    ```
 
-### Deploy to a Public Testnet (e.g., Goerli)
-1. Configure your `hardhat.config.js` with your Infura/Alchemy project ID and private key.
-2. Deploy the contract:
-   ```shell
-   npx hardhat run scripts/deploy.js --network goerli
-   ```
+### WEB
 
----
+npx serve frontend
 
 ## Testing
 
